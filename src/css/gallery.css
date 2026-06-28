@@ -1,25 +1,39 @@
 .loader {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  display: inline-block;
+  background: #ff3d00;
+  display: block;
+  margin: 20px auto;
   position: relative;
-  border: 2px solid #ff3d00;
   box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-  margin: 0 auto;
+  animation: rotationBack 1s ease-in-out infinite reverse;
+}
+
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  left: 0;
+  top: 0;
+  transform: rotate(45deg);
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: #ff3d00;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 .loader::after {
   content: '';
   box-sizing: border-box;
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  border: 2px solid #fff;
-  width: 12px;
-  height: 12px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 @keyframes rotation {
@@ -92,6 +106,7 @@ button:hover {
   flex-direction: column;
   border: 1px solid #808080;
   width: calc((100% - 24px * 2) / 3);
+  height: 100%;
 }
 
 .gallery-item a {
@@ -113,4 +128,9 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.load-more {
+  margin: 40px auto;
+  width: 120px;
 }
